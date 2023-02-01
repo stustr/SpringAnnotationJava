@@ -1,5 +1,6 @@
 package com.codeclan.example.db_relationship_annotations.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -17,8 +18,8 @@ public class File {
     private int size;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "folder_id", nullable = true)
-    @JsonIgnoreProperties({"files"})
     private Folder folder;
 
     @Id

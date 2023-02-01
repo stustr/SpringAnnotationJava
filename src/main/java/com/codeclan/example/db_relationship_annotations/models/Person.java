@@ -2,6 +2,7 @@ package com.codeclan.example.db_relationship_annotations.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Person {
     @Column(name = "name")
     private String name;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
     private List<Folder> folders;
 
